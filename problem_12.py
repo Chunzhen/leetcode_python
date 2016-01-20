@@ -10,7 +10,7 @@ class Solution(object):
 	    #千位
 	    roman=""
 	    roman_num=[1000,900,500,400,100,90,50,40,10,9,5,4,1]
-	    roman_str=["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"]
+	    roman_str=["M","CM","D","","C","XC","L","XL","X","IX","V","IV","I"]
 	    for i in range(len(roman_num)):
 	    	temp_num=int(num/roman_num[i])
 	    	#print temp_num," ",roman_str[i]," ",num
