@@ -19,7 +19,6 @@ class Solution(object):
 			else:
 				l=mid+1
 
-		print l,' ',r
 		if abs(r-l)==1:
 			return max([l,r])
 		else:
