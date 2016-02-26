@@ -1,45 +1,45 @@
-#! /usr/bin/env python
-# -*- coding:utf-8 -*-
-import copy
+# /usr/bin/env python
+# -*- coding: utf-8 -*-
+
 class Solution(object):
-	def __init__(self):
-		self.n=0
-		self.p=""
 	def getPermutation(self,n,k):
-		"""
-		:type n: int
-		:type k: int
-		:rtype: str
-		"""
-		self.n=0
-		self.p=""
-		nums=[i for i in range(1,n+1)]
-		self.find(nums,[],len(nums),k)
-		return self.p
-
-	def find(self,nums,tmp_l,n,k):
-		if len(tmp_l)==n:
-			self.n+=1
-
-			if self.n==k:
-				self.p=''.join([str(v) for v in tmp_l])
-				return True
-			return False
-		for i in range(len(nums)):
-			tmp_l.append(nums[i])
-			new=nums[0:i]
-			if new:
-				new.extend(nums[i+1:])
+		l=[]
+		l2=[]
+		k-=1
+		for i in range(1,n):
+			if i==1:
+				l.append(1)
 			else:
-				new=nums[i+1:]
-			r=self.find(new,tmp_l,n,k)
-			if r:
-				return True
-			tmp_l.pop()
+				l.append(l[-1]*i)
+			l2.append(i)
+		l2.append(n)
+		#print l
+		#print l2
+		i=len(l)-1
+		r=[]
+		while i>=0:
+			index=k//l[i]
+			#print index,' ',k,' ',l2[index]
+			r.append(str(l2[index]))
+			l2.remove(l2[index])
+			k=k-l[i]*index
+			i-=1
+
+		r.append(str(l2[0]))
+		return ''.join(r)
 
 def main():
 	s=Solution()
-	print s.getPermutation(5,2)
+	print s.getPermutation(9,171669)
+	pass
+
+# 1234
+# 1243
+# 1324
+# 1343
+# 1423
+# 1432
+
 
 if __name__ == '__main__':
 	main()
