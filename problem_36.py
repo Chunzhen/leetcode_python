@@ -25,7 +25,7 @@ class Solution(object):
 
 			if len(s1)!=k1:
 				return False
-			if len(s2)!=k1:
+			if len(s2)!=k2:
 				return False
 
 		for i in range(9):
