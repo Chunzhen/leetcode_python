@@ -21,6 +21,6 @@ def main():
 	nums=[1,3,2,5,4,2,3]
 	print solution.rob(nums)
 	
-
+W
 if __name__ == '__main__':
   	main()  
